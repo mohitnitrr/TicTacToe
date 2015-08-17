@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="381dp"
+        android:layout_height="114dp"
+        android:id="@+id/LinearLayout1">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Tic Tac Toe Game"
+            android:id="@+id/textView2"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:weightSum="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="First Player"
+                    android:id="@+id/textView" />
+
+                <EditText
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/editText"
+                    android:layout_column="1"
+                    android:layout_marginLeft="0dp"
+                    android:inputType="text" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Second Player"
+                    android:id="@+id/textView3" />
+
+                <EditText
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/editText1"
+                    android:layout_column="1"
+                    android:layout_marginLeft="5dp" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="First Player : Cross"
+                    android:id="@+id/textView4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Second Player : Circle"
+                    android:id="@+id/textView5" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="10dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="START"
+                    android:id="@+id/start1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignLeft="@+id/textView"
+                    android:layout_alignStart="@+id/textView"
+                    android:layout_alignRight="@+id/textView"
+                    android:layout_alignEnd="@+id/textView" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CANCEL"
+                    android:id="@+id/cancel"
+                    android:layout_centerVertical="true"
+                    android:layout_alignLeft="@+id/textView"
+                    android:layout_alignStart="@+id/textView"
+                    android:layout_alignRight="@+id/textView"
+                    android:layout_alignEnd="@+id/textView"
+                    android:layout_marginLeft="30dp" />
+
+            </TableRow>
+
+
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

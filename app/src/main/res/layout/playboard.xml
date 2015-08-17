@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/LinearLayout">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="381dp"
+        android:layout_height="60dp"
+        android:id="@+id/LinearLayout1">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Player1 :"
+            android:id="@+id/playboard_textView1"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cross"
+            android:id="@+id/playboard_textView2"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="381dp"
+        android:layout_height="60dp"
+        android:id="@+id/LinearLayout2">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Player2 :"
+            android:id="@+id/playboard_textView3"
+            android:layout_marginTop="10dp"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Circle"
+            android:id="@+id/playboard_textView4"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="381dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/LinearLayout3">
+
+    <TableLayout
+            android:layout_width="375dp"
+            android:layout_height="346dp"
+        android:orientation="horizontal"
+        android:id="@+id/tablelayout"
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        android:background="#ffffff"
+        >
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:padding="1dip"
+            android:orientation="horizontal"
+            android:id="@+id/row1"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/playboard_button1"
+                android:text="1"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="60dp"
+                android:tag="1"
+                />
+
+            <ImageButton
+                android:id="@+id/playboard_button2"
+                android:text="2"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:padding="60dip" android:gravity="center" android:tag="2"  />
+
+            <ImageButton
+                android:id="@+id/playboard_button3"
+                android:text="3"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:backgroundTint="#000000"
+                android:padding="60dip" android:gravity="center" android:layout_columnSpan="2" android:tag="3" />
+
+        </TableRow>
+
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:gravity="center_horizontal"
+            android:padding="1dip"
+            android:orientation="horizontal"
+            android:id="@+id/row2">
+
+            <ImageButton
+                android:id="@+id/playboard_button4"
+                android:text="4"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:padding="60dip" android:gravity="center" android:tag="4" />
+            <ImageButton
+                android:id="@+id/playboard_button5"
+                android:text="5"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:padding="60dip" android:gravity="center" android:tag="5"/>
+            <ImageButton
+                android:id="@+id/playboard_button6"
+                android:text="6"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:padding="60dip" android:gravity="center" android:tag="6"/>
+
+        </TableRow>
+
+
+        <TableRow android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:padding="1dip">
+
+            <ImageButton
+                android:id="@+id/playboard_button7"
+                android:text="7"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:padding="60dip" android:gravity="center" android:tag="7"/>
+            <ImageButton
+                android:id="@+id/playboard_button8"
+                android:text="8"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:padding="60dip" android:gravity="center" android:tag="8"/>
+            <ImageButton
+                android:id="@+id/playboard_button9"
+                android:text="9"
+                android:layout_width="100dp"
+                android:layout_height="112dp"
+                android:layout_weight="1"
+                android:padding="60dip" android:gravity="center" android:tag="9"/>
+         </TableRow>
+     </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="381dp"
+        android:layout_height="60dp"
+        android:id="@+id/LinearLayout6">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Player1 :"
+            android:id="@+id/playboard_textView6"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cross"
+            android:id="@+id/playboard_textView7"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
