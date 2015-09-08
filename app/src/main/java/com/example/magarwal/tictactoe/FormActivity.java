@@ -40,6 +40,7 @@ public class FormActivity extends Activity {
 
                 playBoardActivity.putExtra("player1", player1.getText().toString());
                 playBoardActivity.putExtra("player2", player2.getText().toString());
+                playBoardActivity.putExtra(Constants.NoOfPlayers, getIntent().getStringExtra(Constants.NoOfPlayers));
                 // Use the Intent to start the HelloAndroid Activity
                 startActivity(playBoardActivity);
             }

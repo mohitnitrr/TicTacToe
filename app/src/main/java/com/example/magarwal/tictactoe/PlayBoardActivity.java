@@ -12,6 +12,7 @@ import android.widget.TextView;
 /**
  * Created by magarwal on 8/10/2015.
  */
+
 public class PlayBoardActivity extends Activity {
 
     int count = 0;
@@ -20,6 +21,20 @@ public class PlayBoardActivity extends Activity {
     int dot_image = R.drawable.system_dot;
     String player1Name;
     String player2Name;
+    int playerCount;
+
+    TextView currentPlayerName=null;
+
+
+     ImageButton b1;
+    ImageButton b2;
+     ImageButton b3;
+     ImageButton b4;
+    ImageButton b5 ;
+    ImageButton b6;
+    ImageButton b7 ;
+    ImageButton b8 ;
+    ImageButton b9;
 
     View.OnClickListener button_listener = new View.OnClickListener() {
         public void onClick(View v) {
@@ -28,9 +43,20 @@ public class PlayBoardActivity extends Activity {
             imageButton.setClickable(false);
             if (count % 2 == 0) {
                 imageButton.setImageResource(cross_image);
+                currentPlayerName.setText(player2Name);
+                if(playerCount==1){
+                    updateAndCheckResult(imageButton, currentPlayer);
+                    TicTacToeMinMaxImplementation ticTacToeMinMaxImplementation = new TicTacToeMinMaxImplementation();
+                    int position = ticTacToeMinMaxImplementation.callMinMax(arr);
+                    String str= "b"+position;
+                    
+                    count++;
+                    currentPlayer=2;
+                }
                 currentPlayer = 1;
             } else {
                 imageButton.setImageResource(dot_image);
+                currentPlayerName.setText(player1Name);
                 currentPlayer = 2;
             }
 
@@ -163,22 +189,27 @@ public class PlayBoardActivity extends Activity {
 
         player1Name = getIntent().getStringExtra("player1").toString();
         player2Name = getIntent().getStringExtra("player2").toString();
+        playerCount = getIntent().getIntExtra(Constants.NoOfPlayers,2);
 
         final TextView player1 = (TextView) findViewById(R.id.playboard_textView1);
         final TextView player2 = (TextView) findViewById(R.id.playboard_textView3);
 
+        //final TextView currentPlayer =(TextView)findViewById(R.id.CurrentPlayer);
+        currentPlayerName =(TextView)findViewById(R.id.CurrentPlayerName);
+
         player1.setText(player1Name);
         player2.setText(player2Name);
+        currentPlayerName.setText(player1Name);
 
-        final ImageButton b1 = (ImageButton) findViewById(R.id.playboard_button1);
-        final ImageButton b2 = (ImageButton) findViewById(R.id.playboard_button2);
-        final ImageButton b3 = (ImageButton) findViewById(R.id.playboard_button3);
-        final ImageButton b4 = (ImageButton) findViewById(R.id.playboard_button4);
-        final ImageButton b5 = (ImageButton) findViewById(R.id.playboard_button5);
-        final ImageButton b6 = (ImageButton) findViewById(R.id.playboard_button6);
-        final ImageButton b7 = (ImageButton) findViewById(R.id.playboard_button7);
-        final ImageButton b8 = (ImageButton) findViewById(R.id.playboard_button8);
-        final ImageButton b9 = (ImageButton) findViewById(R.id.playboard_button9);
+        b1 = (ImageButton) findViewById(R.id.playboard_button1);
+        b2 = (ImageButton) findViewById(R.id.playboard_button2);
+        b3 = (ImageButton) findViewById(R.id.playboard_button3);
+        b4 = (ImageButton) findViewById(R.id.playboard_button4);
+        b5 = (ImageButton) findViewById(R.id.playboard_button5);
+        b6 = (ImageButton) findViewById(R.id.playboard_button6);
+        b7 = (ImageButton) findViewById(R.id.playboard_button7);
+        b8 = (ImageButton) findViewById(R.id.playboard_button8);
+        b9 = (ImageButton) findViewById(R.id.playboard_button9);
 
         b1.setOnClickListener(button_listener);
         b2.setOnClickListener(button_listener);

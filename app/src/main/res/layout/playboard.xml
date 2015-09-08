@@ -176,15 +176,15 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Player1 :"
-            android:id="@+id/playboard_textView6"
+            android:text="NextChance :"
+            android:id="@+id/CurrentPlayer"
             android:layout_marginTop="10dp" />
         <TextView
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Cross"
-            android:id="@+id/playboard_textView7"
+            android:text=" "
+            android:id="@+id/CurrentPlayerName"
             android:layout_marginTop="10dp" />
 
     </LinearLayout>

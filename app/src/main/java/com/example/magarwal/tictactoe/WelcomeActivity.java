@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+
 public class WelcomeActivity extends Activity {
 
     @Override
@@ -14,14 +15,31 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        final Button startButton = (Button) findViewById(R.id.start);
+        final Button twoPlayerButton = (Button) findViewById(R.id.twoPlayerGame);
+        final Button onePlayerButton = (Button) findViewById(R.id.onePlayerGame);
 
-        startButton.setOnClickListener(new View.OnClickListener() {
+        twoPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent formActivityIntent = new Intent(WelcomeActivity.this,
                         FormActivity.class);
+
+                formActivityIntent.putExtra(Constants.NoOfPlayers,2);
+
+                // Use the Intent to start the HelloAndroid Activity
+                startActivity(formActivityIntent);
+            }
+        });
+
+        onePlayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent formActivityIntent = new Intent(WelcomeActivity.this,
+                        FormActivity.class);
+
+                formActivityIntent.putExtra(Constants.NoOfPlayers,1);
 
                 // Use the Intent to start the HelloAndroid Activity
                 startActivity(formActivityIntent);

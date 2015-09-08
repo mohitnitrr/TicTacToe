@@ -16,27 +16,29 @@
         android:id="@+id/textView3"
         android:layout_marginTop="90dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/twoPlayerGame"
+        android:layout_alignStart="@+id/twoPlayerGame"
+        android:layout_alignRight="@+id/onePlayerGame"
+        android:layout_alignEnd="@+id/onePlayerGame"
+        android:autoText="false"
+        android:clickable="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="two player game"
-        android:id="@+id/start"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:id="@+id/twoPlayerGame"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="One player game"
-        android:id="@+id/textView"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginTop="57dp" />
+        android:text="one player game"
+        android:id="@+id/onePlayerGame"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/twoPlayerGame"
+        android:layout_alignLeft="@+id/twoPlayerGame"
+        android:layout_alignStart="@+id/twoPlayerGame" />
 </RelativeLayout>
