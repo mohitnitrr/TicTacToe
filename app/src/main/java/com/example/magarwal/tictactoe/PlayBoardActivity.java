@@ -47,7 +47,12 @@ public class PlayBoardActivity extends Activity {
                 currentPlayer = 1 ;
 
                 if(playerCount==1){
+                    count++;
                     updateAndCheckResult(imageButton, 1);
+                    if(count==9)
+                        game_draw();
+
+                    else{
                     TicTacToeMinMaxImplementation ticTacToeMinMaxImplementation = new TicTacToeMinMaxImplementation();
                     int position = ticTacToeMinMaxImplementation.callMinMax(arr);
                     ImageButton imbt =(ImageButton)findViewById(R.id.playboard_button1);
@@ -65,9 +70,10 @@ public class PlayBoardActivity extends Activity {
                     imbt.setClickable(false);
 
                     imageButton =imbt;
-                    count++;
+
                     currentPlayer=2;
                     currentPlayerName.setText(player1Name);
+                    }
                 }
 
             } else {
@@ -79,9 +85,23 @@ public class PlayBoardActivity extends Activity {
             updateAndCheckResult(imageButton, currentPlayer);
             count++;
             if(count==9)
-                start_new_game();
+                game_draw();
         }
     };
+
+    private void game_draw() {
+        CharSequence message ="Its a tie , play again";
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message).setPositiveButton("New Game", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // reset the game environment.
+                start_new_game();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
 
 
     void updateAndCheckResult(ImageButton imageButton, int currentPlayer) {
