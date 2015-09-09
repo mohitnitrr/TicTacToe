@@ -44,16 +44,32 @@ public class PlayBoardActivity extends Activity {
             if (count % 2 == 0) {
                 imageButton.setImageResource(cross_image);
                 currentPlayerName.setText(player2Name);
+                currentPlayer = 1 ;
+
                 if(playerCount==1){
-                    updateAndCheckResult(imageButton, currentPlayer);
+                    updateAndCheckResult(imageButton, 1);
                     TicTacToeMinMaxImplementation ticTacToeMinMaxImplementation = new TicTacToeMinMaxImplementation();
                     int position = ticTacToeMinMaxImplementation.callMinMax(arr);
-                    String str= "b"+position;
-                    
+                    ImageButton imbt =(ImageButton)findViewById(R.id.playboard_button1);
+
+                    int id  = imbt.getId();
+
+                    if(position<=3)
+                        position =position + id -1;
+                    else
+                        position = position+id;
+
+
+                    imbt = (ImageButton)findViewById(position);
+                    imbt.setImageResource(dot_image);
+                    imbt.setClickable(false);
+
+                    imageButton =imbt;
                     count++;
                     currentPlayer=2;
+                    currentPlayerName.setText(player1Name);
                 }
-                currentPlayer = 1;
+
             } else {
                 imageButton.setImageResource(dot_image);
                 currentPlayerName.setText(player1Name);

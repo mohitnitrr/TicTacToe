@@ -177,7 +177,7 @@ public class TicTacToeMinMaxImplementation {
         int max = Integer.MIN_VALUE;
         int pos = -1;
         for (PointWithScore p : levelPointWithScores) {
-            System.out.println(p.position + " " + p.score);
+            //System.out.println(p.position + " " + p.score);
             if (max < p.score) {
                 max = p.score;
                 pos = p.position;
