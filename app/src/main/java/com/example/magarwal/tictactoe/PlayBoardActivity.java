@@ -26,16 +26,6 @@ public class PlayBoardActivity extends Activity {
     TextView currentPlayerName=null;
 
 
-     ImageButton b1;
-    ImageButton b2;
-     ImageButton b3;
-     ImageButton b4;
-    ImageButton b5 ;
-    ImageButton b6;
-    ImageButton b7 ;
-    ImageButton b8 ;
-    ImageButton b9;
-
     View.OnClickListener button_listener = new View.OnClickListener() {
         public void onClick(View v) {
             int currentPlayer = 0;
@@ -237,15 +227,15 @@ public class PlayBoardActivity extends Activity {
         player2.setText(player2Name);
         currentPlayerName.setText(player1Name);
 
-        b1 = (ImageButton) findViewById(R.id.playboard_button1);
-        b2 = (ImageButton) findViewById(R.id.playboard_button2);
-        b3 = (ImageButton) findViewById(R.id.playboard_button3);
-        b4 = (ImageButton) findViewById(R.id.playboard_button4);
-        b5 = (ImageButton) findViewById(R.id.playboard_button5);
-        b6 = (ImageButton) findViewById(R.id.playboard_button6);
-        b7 = (ImageButton) findViewById(R.id.playboard_button7);
-        b8 = (ImageButton) findViewById(R.id.playboard_button8);
-        b9 = (ImageButton) findViewById(R.id.playboard_button9);
+        final  ImageButton   b1 = (ImageButton) findViewById(R.id.playboard_button1);
+        final  ImageButton   b2 = (ImageButton) findViewById(R.id.playboard_button2);
+        final  ImageButton   b3 = (ImageButton) findViewById(R.id.playboard_button3);
+        final  ImageButton  b4 = (ImageButton) findViewById(R.id.playboard_button4);
+        final  ImageButton  b5 = (ImageButton) findViewById(R.id.playboard_button5);
+        final  ImageButton  b6 = (ImageButton) findViewById(R.id.playboard_button6);
+        final  ImageButton  b7 = (ImageButton) findViewById(R.id.playboard_button7);
+        final  ImageButton  b8 = (ImageButton) findViewById(R.id.playboard_button8);
+        final  ImageButton  b9 = (ImageButton) findViewById(R.id.playboard_button9);
 
         b1.setOnClickListener(button_listener);
         b2.setOnClickListener(button_listener);

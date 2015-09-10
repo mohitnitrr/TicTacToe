@@ -141,9 +141,9 @@ public class TicTacToeMinMaxImplementation {
     private int minMax(int player, int height) {
 
         if (isGameOver(computer)) {
-            return WIN;
+            return WIN-height;
         } else if (isGameOver(user)) {
-            return LOSS;
+            return LOSS+height;
         }
         List<Integer> options = getVacantPlaces();
         if (options.size() == 0)
