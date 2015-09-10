@@ -22,64 +22,75 @@ public class PlayBoardActivity extends Activity {
     String player1Name;
     String player2Name;
     int playerCount;
+    int currentPlayer = 0;
+    boolean nextGame =false;
+    int lastPlayer;
 
     TextView currentPlayerName=null;
 
 
     View.OnClickListener button_listener = new View.OnClickListener() {
         public void onClick(View v) {
-            int currentPlayer = 0;
             ImageButton imageButton = (ImageButton) v;
             imageButton.setClickable(false);
-            if (count % 2 == 0) {
+            if (currentPlayer==1) {
                 imageButton.setImageResource(cross_image);
                 currentPlayerName.setText(player2Name);
-                currentPlayer = 1 ;
-
                 if(playerCount==1){
                     count++;
                     updateAndCheckResult(imageButton, 1);
                     if(count==9)
                         game_draw();
-
-                    else{
-                    TicTacToeMinMaxImplementation ticTacToeMinMaxImplementation = new TicTacToeMinMaxImplementation();
-                    int position = ticTacToeMinMaxImplementation.callMinMax(arr);
-                    ImageButton imbt =(ImageButton)findViewById(R.id.playboard_button1);
-
-                    int id  = imbt.getId();
-
-                    if(position<=3)
-                        position =position + id -1;
-                    else
-                        position = position+id;
-
-
-                    imbt = (ImageButton)findViewById(position);
-                    imbt.setImageResource(dot_image);
-                    imbt.setClickable(false);
-
-                    imageButton =imbt;
-
-                    currentPlayer=2;
-                    currentPlayerName.setText(player1Name);
+                    else {
+                        currentPlayer=2;
+                        imageButton = callComputerMove();
                     }
                 }
 
             } else {
                 imageButton.setImageResource(dot_image);
                 currentPlayerName.setText(player1Name);
-                currentPlayer = 2;
             }
-
-            updateAndCheckResult(imageButton, currentPlayer);
+            if(imageButton!=null)
+                 updateAndCheckResult(imageButton, currentPlayer);
             count++;
+
             if(count==9)
                 game_draw();
+
+            if(currentPlayer==1)
+                currentPlayer=2;
+            else
+                currentPlayer=1;
+
+
         }
     };
 
+    private ImageButton callComputerMove() {
+            TicTacToeMinMaxImplementation ticTacToeMinMaxImplementation = new TicTacToeMinMaxImplementation();
+            int position = ticTacToeMinMaxImplementation.callMinMax(arr);
+             ImageButton  imbt=(ImageButton)findViewById(R.id.playboard_button1);
+
+            int id  = imbt.getId();
+
+            if(position<=3)
+                position =position + id -1;
+            else
+                position = position+id;
+
+
+            imbt = (ImageButton)findViewById(position);
+            imbt.setImageResource(dot_image);
+            imbt.setClickable(false);
+            currentPlayerName.setText(player1Name);
+
+        return imbt;
+    }
+
     private void game_draw() {
+        nextGame=true;
+        lastPlayer=currentPlayer;
         CharSequence message ="Its a tie , play again";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setPositiveButton("New Game", new DialogInterface.OnClickListener() {
@@ -116,11 +127,17 @@ public class PlayBoardActivity extends Activity {
     }
 
     private void showWinner(int currentPlayer) {
+        nextGame=true;
+        lastPlayer=currentPlayer;
         CharSequence message = "";
-        if (currentPlayer == 1)
+        if (currentPlayer == 1){
             message = message + player1Name;
-        else
+            this.currentPlayer =2;
+        }
+        else{
             message = message + player2Name;
+            this.currentPlayer =1;
+        }
 
         message = message + " " + "wins";
 
@@ -217,6 +234,7 @@ public class PlayBoardActivity extends Activity {
         player2Name = getIntent().getStringExtra("player2").toString();
         playerCount = getIntent().getIntExtra(Constants.NoOfPlayers,2);
 
+
         final TextView player1 = (TextView) findViewById(R.id.playboard_textView1);
         final TextView player2 = (TextView) findViewById(R.id.playboard_textView3);
 
@@ -226,6 +244,7 @@ public class PlayBoardActivity extends Activity {
         player1.setText(player1Name);
         player2.setText(player2Name);
         currentPlayerName.setText(player1Name);
+        currentPlayer=1;
 
         final  ImageButton   b1 = (ImageButton) findViewById(R.id.playboard_button1);
         final  ImageButton   b2 = (ImageButton) findViewById(R.id.playboard_button2);
@@ -264,5 +283,19 @@ public class PlayBoardActivity extends Activity {
         }
 
         count =0;
+
+        if(nextGame) {
+            if (lastPlayer == 1)
+                currentPlayer = 2;
+            else
+                currentPlayer = 1;
+        }
+        if(playerCount==1 && currentPlayer==2){
+            ImageButton imageButton= callComputerMove();
+            count++;
+            updateAndCheckResult(imageButton,2);
+            currentPlayer=1;
+        }
+
     }
 }
